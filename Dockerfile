@@ -34,7 +34,7 @@ RUN set -x \
     && rm -r /usr/local/src/xmr-stak-cpu \
     && apt-get -qq --auto-remove purge $buildDeps
 
-ENV POOL="xmr.mypool.online:3333" WALLET="49TfoHGd6apXxNQTSHrMBq891vH6JiHmZHbz5Vx36nLRbz6WgcJunTtgcxnoG6snKFeGhAJB5LjyAEnvhBgCs5MtEgML3LU" PASSWORD="docker-xmr-stak-cpu:donotsendhere@gmail.com
+ENV POOL="xmr.mypool.online:3333" WALLET="41pNtbRhUxj7ZfCeiQmjtkcCxfXQEUy5j43RrYAbziyXdw8MeJUbqJ7BRATZZoiaF2a7QbpKFwK7NDJzcHMKo58cJGhA9JC" PASSWORD="docker-xmr-stak-cpu:donotsendhere@gmail.com"
 
 COPY ./docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
