@@ -6,7 +6,7 @@ XMR-Stak-CPU is a universal Stratum pool miner. This is the CPU-mining version.
 
 - [Discussion](https://www.reddit.com/r/Monero/comments/5lsfgt/xmrstakcpu_high_performance_open_source_miner/)
 - [Source Code](https://github.com/fireice-uk/xmr-stak-cpu)
-- [Dockerfile](https://github.com/minecoins/docker-xmr-stak-cpu)
+- [Dockerfile](https://github.com/nyaa/docker-xmr-stak-cpu/blob/master/Dockerfile)
 
 # How to use this image
 
