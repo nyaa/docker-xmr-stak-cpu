@@ -32,6 +32,14 @@ Attach:
 $ docker attach xmr-stak-cpu
 ```
 
+## Core count
+
+This image will try to detect cores count, and generate config, but if you want override it use:
+
+```
+-e "CORES=10"
+```
+
 # Donations
 
 Donations for work on dockerizing are accepted at:
