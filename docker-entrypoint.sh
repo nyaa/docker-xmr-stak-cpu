@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ ! -f /usr/local/etc/config.txt ]; then
+if [ ! -f /usr/local/bin/config.txt ]; then
   echo "Generating default /usr/local/etc/config.txt"
   if [[ $POOL =~ .*nicehash.com.* ]]; then
     echo "Nicehash pool, set nicehash_nonce to true"
@@ -10,22 +10,21 @@ if [ ! -f /usr/local/etc/config.txt ]; then
     NICEHASH_NONCE=false
   fi
   sed -r \
-    -e "s/^(\"pool_address\" : ).*,/\1\"$POOL\",/" \
-    -e "s/^(\"wallet_address\" : ).*,/\1\"$WALLET\",/" \
-    -e "s/^(\"pool_password\" : ).*,/\1\"$PASSWORD\",/" \
-    -e "s/^(\"nicehash_nonce\" : ).*,/\1$NICEHASH_NONCE,/" \
-    -e "s/^null/[\nREPLACE\n]/" \
-    /root/config.txt > /usr/local/etc/config.txt
-    if [ -z "${CORES}" ]; then
-      CORES=`grep -c processor /proc/cpuinfo`
-    fi
-    echo "Set $CORES threads"
-    REPLACE=""
-    for ((n=0;n<CORES;n++))
-    do
-      REPLACE+="{ \"low_power_mode\" : false, \"no_prefetch\" : true, \"affine_to_cpu\" : $n },\n"
-    done
-    sed -i -e "s/REPLACE/$REPLACE/" /usr/local/etc/config.txt
+    -e "s/POOL/$POOL/" \
+    -e "s/WALLET/$WALLET/" \
+    -e "s/PASSWORD/$PASSWORD/" \
+    -e "s/NICEHASH_NONCE/$NICEHASH_NONCE/" \
+    /root/config.txt > /usr/local/bin/config.txt
+  if [ -z "${CORES}" ]; then
+    CORES=`grep -c processor /proc/cpuinfo`
+  fi
+  echo "Set $CORES threads"
+  REPLACE=""
+  for ((n=0;n<CORES;n++))
+  do
+    REPLACE+="{ \"low_power_mode\" : false, \"no_prefetch\" : true, \"affine_to_cpu\" : $n },\n"
+  done
+  sed -i -e "s/CPU/$REPLACE/" /usr/local/bin/cpu.txt
 fi
 
 exec "$@"
