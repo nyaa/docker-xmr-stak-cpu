@@ -3,12 +3,7 @@ set -e
 
 if [ ! -f /usr/local/bin/config.txt ]; then
   echo "Generating default /usr/local/etc/config.txt"
-  if [[ $POOL =~ .*nicehash.com.* ]]; then
-    echo "Nicehash pool, set nicehash_nonce to true"
-    NICEHASH_NONCE=true
-  else
-    NICEHASH_NONCE=false
-  fi
+
   sed -r \
     -e "s/POOL/$POOL/" \
     -e "s/WALLET/$WALLET/" \

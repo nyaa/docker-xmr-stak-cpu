@@ -33,7 +33,7 @@ RUN set -x \
     && rm -r /usr/local/src/xmr-stak \
     && apt-get -qq --auto-remove purge $buildDeps
 
-ENV POOL="pool.supportxmr.com:3333" WALLET="41pNtbRhUxj7ZfCeiQmjtkcCxfXQEUy5j43RrYAbziyXdw8MeJUbqJ7BRATZZoiaF2a7QbpKFwK7NDJzcHMKo58cJGhA9JC" PASSWORD="docker-xmr-stak:donotsendhere@gmail.com"
+ENV POOL="pool.supportxmr.com:3333" WALLET="41pNtbRhUxj7ZfCeiQmjtkcCxfXQEUy5j43RrYAbziyXdw8MeJUbqJ7BRATZZoiaF2a7QbpKFwK7NDJzcHMKo58cJGhA9JC" PASSWORD="docker-xmr-stak:donotsendhere@gmail.com" NICEHASH_NONCE="false"
 ENV APP_HOME /usr/local/bin
 WORKDIR $APP_HOME
 
