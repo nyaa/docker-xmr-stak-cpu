@@ -2,3 +2,4 @@
 !docker-entrypoint.sh
 !config.txt
 !cpu.txt
+!pools.txt
