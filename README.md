@@ -1,6 +1,6 @@
-# What is XMR-Stak-CPU?
+# What is XMR-Stak?
 
-XMR-Stak-CPU is a universal Stratum pool miner. This is the CPU-mining version.
+XMR-Stak is a universal Stratum pool miner. This is the CPU-mining version.
 
 ## Links
 
